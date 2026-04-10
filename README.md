@@ -1,0 +1,1 @@
+InterviewAI is a full-stack mock interview platform where users can practice interviews by selecting a job role and getting AI-generated questions. Answers are evaluated in real-time using the Gemini API, with instant feedback to help users improve.
