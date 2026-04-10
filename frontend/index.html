@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InterviewAI — CS Interview Platform</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>221
+
+<!-- ===== LANDING PAGE ===== -->
+<div id="page-landing" class="page active">
+  <nav class="navbar">
+    <div class="logo">Interview<span>AI</span></div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('page-login')">Login</a>
+      <a href="#" class="btn-nav" onclick="showPage('page-register')">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="glow g1"></div>
+      <div class="glow g2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="badge">🎓 Second Year Project · CSE Edition</div>
+      <h1>Ace Your <br/><span class="highlight">Tech Interview</span><br/>With AI Precision</h1>
+      <p class="hero-sub">Practice real DSA, System Design & CS fundamentals with an AI interviewer. Get instant feedback, scores & improvement tips.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showPage('page-register')">Start Free Practice →</button>
+        <button class="btn-ghost" onclick="showPage('page-login')">Sign In</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>500+</span><p>Questions</p></div>
+        <div class="stat"><span>12</span><p>Topics</p></div>
+        <div class="stat"><span>AI</span><p>Powered</p></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <div class="terminal-body">
+          <p class="t-line"><span class="t-prompt">AI:</span> Explain time complexity of QuickSort.</p>
+          <p class="t-line typing"><span class="t-user">You:</span> Average case is O(n log n)...</p>
+          <p class="t-line fade-in"><span class="t-score">✓ Score: 87/100</span> — Good explanation! Add pivot selection details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Everything You Need to <span class="highlight">Crack Interviews</span></h2>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-icon">🧠</div><h3>AI Interviewer</h3><p>Powered by Claude AI — asks follow-ups, evaluates depth, and gives FAANG-level feedback.</p></div>
+      <div class="feat-card"><div class="feat-icon">📊</div><h3>Performance Analytics</h3><p>Track scores across sessions. Identify weak topics. Visual progress charts.</p></div>
+      <div class="feat-card"><div class="feat-icon">💻</div><h3>Code Editor</h3><p>Built-in syntax-highlighted editor. Write and explain code in real time.</p></div>
+      <div class="feat-card"><div class="feat-icon">🗂️</div><h3>Topic Coverage</h3><p>DSA, OS, DBMS, Networks, OOP, System Design & more — all CSE core subjects.</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>InterviewAI © 2025 · Project · Computer applications Department</p>
+  </footer>
+</div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div id="page-login" class="page">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="logo" onclick="showPage('page-landing')" style="cursor:pointer">Interview<span>AI</span></div>
+      <h2>Welcome Back</h2>
+      <p>Continue your interview prep journey.</p>
+      <div class="auth-form">
+        <div class="form-group"><label>Email</label><input type="email" id="login-email" placeholder="you@college.edu"/></div>
+        <div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="••••••••"/></div>
+        <div id="login-error" class="error-msg"></div>
+        <button class="btn-primary full" onclick="handleLogin()">Sign In →</button>
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="showPage('page-register')">Register</a></p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-quote">
+        <blockquote>"Practice doesn't make perfect — deliberate practice does."</blockquote>
+        <p>— AI-powered feedback after every answer</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTER PAGE ===== -->
+<div id="page-register" class="page">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="logo" onclick="showPage('page-landing')" style="cursor:pointer">Interview<span>AI</span></div>
+      <h2>Create Account</h2>
+      <p>Start practicing in under a minute.</p>
+      <div class="auth-form">
+        <div class="form-group"><label>Full Name</label><input type="text" id="reg-name" placeholder="Arjun Sharma"/></div>
+        <div class="form-group"><label>Email</label><input type="email" id="reg-email" placeholder="you@college.edu"/></div>
+        <div class="form-group"><label>Password</label><input type="password" id="reg-password" placeholder="Min 6 characters"/></div>
+        <div class="form-group">
+          <label>Target Role</label>
+          <select id="reg-role">
+            <option value="">Select your goal</option>
+            <option>SDE Intern</option>
+            <option>SDE-1 (Full Time)</option>
+            <option>Data Engineer</option>
+            <option>ML Engineer</option>
+          </select>
+        </div>
+        <div id="reg-error" class="error-msg"></div>
+        <button class="btn-primary full" onclick="handleRegister()">Create Account →</button>
+        <p class="auth-switch">Already registered? <a href="#" onclick="showPage('page-login')">Sign In</a></p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-quote">
+        <blockquote>"An investment in knowledge pays the best interest."</blockquote>
+        <p>— Join 1000+ CSE students preparing smarter</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD PAGE ===== -->
+<div id="page-dashboard" class="page">
+  <aside class="sidebar">
+    <div class="logo">Interview<span>AI</span></div>
+    <nav class="side-nav">
+      <a href="#" class="side-link active" onclick="switchTab('dashboard')">🏠 Dashboard</a>
+      <a href="#" class="side-link" onclick="switchTab('interview')">🎤 Start Interview</a>
+      <a href="#" class="side-link" onclick="switchTab('history')">📋 History</a>
+      <a href="#" class="side-link" onclick="switchTab('topics')">📚 Topics</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="user-avatar" id="user-initials">AS</div>
+      <div>
+        <p id="sidebar-name">Arjun S.</p>
+        <small id="sidebar-role">SDE Intern</small>
+      </div>
+      <button class="logout-btn" onclick="handleLogout()">↩</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- DASHBOARD TAB -->
+    <div id="tab-dashboard" class="tab-content active">
+      <div class="page-header">
+        <h1>Good morning, <span id="dash-name">Student</span> 👋</h1>
+        <p>Keep up the momentum. Here's your overview.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" id="total-sessions">0</div><div class="stat-label">Sessions Done</div></div>
+        <div class="stat-card accent"><div class="stat-num" id="avg-score">—</div><div class="stat-label">Avg Score</div></div>
+        <div class="stat-card"><div class="stat-num" id="best-topic">—</div><div class="stat-label">Best Topic</div></div>
+        <div class="stat-card"><div class="stat-num" id="streak">0🔥</div><div class="stat-label">Day Streak</div></div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card wide">
+          <h3>Quick Start Interview</h3>
+          <p>Pick a topic and start an AI-powered mock interview instantly.</p>
+          <div class="topic-chips" id="quick-topics"></div>
+          <button class="btn-primary mt" onclick="switchTab('interview')">Launch Interview →</button>
+        </div>
+        <div class="dash-card">
+          <h3>Recent Sessions</h3>
+          <div id="recent-sessions-list"><p class="empty-state">No sessions yet. Start your first interview!</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERVIEW TAB -->
+    <div id="tab-interview" class="tab-content">
+      <div id="interview-setup">
+        <div class="page-header">
+          <h1>🎤 Start Mock Interview</h1>
+          <p>Choose topic, difficulty and interview type below.</p>
+        </div>
+        <div class="setup-grid">
+          <div class="setup-card"><h3>Topic</h3><div class="option-grid" id="topic-options"></div></div>
+          <div class="setup-card">
+            <h3>Difficulty</h3>
+            <div class="option-row">
+              <button class="opt-btn active" data-diff="Easy" onclick="selectDiff(this)">Easy</button>
+              <button class="opt-btn" data-diff="Medium" onclick="selectDiff(this)">Medium</button>
+              <button class="opt-btn" data-diff="Hard" onclick="selectDiff(this)">Hard</button>
+            </div>
+          </div>
+          <div class="setup-card">
+            <h3>Mode</h3>
+            <div class="option-row">
+              <button class="opt-btn active" data-mode="Q&A" onclick="selectMode(this)">Q&A</button>
+              <button class="opt-btn" data-mode="Coding" onclick="selectMode(this)">Coding</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary mt" onclick="startInterview()">Begin Interview →</button>
+      </div>
+
+      <div id="interview-session" class="hidden">
+        <div class="interview-header">
+          <div>
+            <h2 id="session-topic-title">DSA Interview</h2>
+            <span id="session-meta" class="meta-badge"></span>
+          </div>
+          <div class="interview-controls">
+            <span class="timer" id="session-timer">00:00</span>
+            <button class="btn-danger" onclick="endInterview()">End Session</button>
+          </div>
+        </div>
+        <div class="chat-area" id="chat-messages">
+          <div class="msg ai-msg"><div class="msg-bubble">Hi! I'm your AI interviewer. I'll ask you 5 questions and evaluate your answers. Ready?</div></div>
+        </div>
+        <div id="code-editor-area" class="hidden" style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem">
+          <div class="code-header">Code Editor <span class="lang-tag">JavaScript</span></div>
+          <textarea id="code-editor" class="code-textarea" placeholder="// Write your code here...&#10;function solution() {&#10;  &#10;}"></textarea>
+        </div>
+        <div class="input-area">
+          <textarea id="user-answer" placeholder="Type your answer here... Be thorough and explain your reasoning." rows="3"></textarea>
+          <div class="input-controls">
+            <span id="q-counter" class="q-count">Q 1/5</span>
+            <button class="btn-primary" onclick="submitAnswer()" id="submit-btn">Submit Answer →</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="interview-result" class="hidden">
+        <div class="result-card">
+          <div class="result-header">
+            <div class="result-icon">🎯</div>
+            <h2>Interview Complete!</h2>
+            <p id="result-topic-name">DSA Interview</p>
+          </div>
+          <div class="score-display">
+            <div class="score-circle">
+              <span id="final-score">0</span>
+              <small>/100</small>
+            </div>
+          </div>
+          <div class="result-breakdown" id="result-breakdown"></div>
+          <div class="result-feedback" id="result-feedback"></div>
+          <div class="result-actions">
+            <button class="btn-primary" onclick="retryInterview()">Try Again</button>
+            <button class="btn-ghost" onclick="switchTab('dashboard')">Back to Dashboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORY TAB -->
+    <div id="tab-history" class="tab-content">
+      <div class="page-header"><h1>📋 Interview History</h1><p>Review your past sessions and track improvement.</p></div>
+      <div id="history-list" class="history-grid"></div>
+    </div>
+
+    <!-- TOPICS TAB -->
+    <div id="tab-topics" class="tab-content">
+      <div class="page-header"><h1>📚 CSE Topics</h1><p>All topics covered in our question bank.</p></div>
+      <div class="topics-grid" id="all-topics-grid"></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
